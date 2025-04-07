@@ -1,0 +1,19 @@
+FROM alpine:latest
+
+# RUN apk add --no-cache ca-certificates tzdata
+# RUN update-ca-certificates
+
+ARG SERVER_CERT_PATH
+ARG SERVER_KEY_PATH
+
+COPY bin/linux-arm /usr/bin/app
+COPY db/migrations /db/migrations
+COPY docs /docs
+
+RUN chmod +x /usr/bin/app
+
+RUN adduser -D -u 1000 app
+
+USER app
+
+ENTRYPOINT ["app"]
