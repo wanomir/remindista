@@ -12,7 +12,7 @@ import (
 // @version 0.0.1
 // @description remindista API
 
-// @host 10.0.0.108:8888
+// @host 10.0.0.109:8888
 // @basePath /
 
 // @securityDefinitions.apiKey ApiKeyAuth
