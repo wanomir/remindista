@@ -129,6 +129,14 @@ tasks:
       - echo '>>> Clear logs'
       - echo '' > .log
 
+  db:backup:
+    desc: Push database backup copy.
+    cmds:
+      - echo '>>> Backup database'
+      - git pull
+      - task: postgres:dump
+      - git add ./db/create_tables.sql && git commit -m "postgres dump $(date)" && git push
+
   postgres:dump:
     desc: Dump Postgres data
     cmds:
